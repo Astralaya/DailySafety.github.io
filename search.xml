@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[ngrok配合linux云服务器实现内网穿透]]></title>
+    <url>%2F2019%2F09%2F19%2Fngrok%E9%85%8D%E5%90%88linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%2F</url>
+    <content type="text"><![CDATA[先设置域名解析 Step1 获取 ngrok 源码非官方地址，修复了部分包无法获取 1git clone https://github.com/tutumcloud/ngrok.git Step2 生成自签名证书— *注意:下述指令中的域名要换成大家自己的哦,不然就绑定到我的域名上去了~ 12345678910111213cd ngrokNGROK_DOMAIN=&quot;ngrok.ouyangm.xyz&quot;openssl genrsa -out base.key 2048openssl req -new -x509 -nodes -key base.key -days 10000 -subj &quot;/CN=$NGROK_DOMAIN&quot; -out base.pemopenssl genrsa -out server.key 2048openssl req -new -key server.key -subj &quot;/CN=$NGROK_DOMAIN&quot; -out server.csropenssl x509 -req -in server.csr -CA base.pem -CAkey base.key -CAcreateserial -days 10000 -out server.crt 替换 1cp base.pem assets/client/tls/ngrokroot.crt Step3：编译生成服务端，这一步耗时较长，耐心等 1sudo make release-server release-client 生成树莓派客户端，等～ 12345678910sudo GOOS=linux GOARCH=arm make release-client bin目录下会出现一个文件夹，里面的ngrok文件就是客户端文件将客户端文件下载客户端 服务器 本地路径scp username@serverIp:/ngrok/bin/ngrok /home/ubunutu/ngrok上传只需将两者调换，文件夹则需要加 -r赋予执行权限sudo chmod +x ngrok 如需生成其他平台客户端请参考以下 1234567#Linux 平台 32 位系统：GOOS=linux GOARCH=386#Linux 平台 64 位系统：GOOS=linux GOARCH=amd64#Windows 平台 32 位系统：GOOS=windows GOARCH=386#Windows 平台 64 位系统：GOOS=windows GOARCH=amd64#MAC 平台 32 位系统：GOOS=darwin GOARCH=386#MAC 平台 64 位系统：GOOS=darwin GOARCH=amd64#ARM 平台：GOOS=linux GOARCH=arm Step4：运行启动服务端 1sudo ./bin/ngrokd -tlsKey=server.key -tlsCrt=server.crt -domain=&quot;ngrok.ouyangm.xyz&quot; -httpAddr=&quot;:8081&quot; -httpsAddr=&quot;:8082&quot; 客户端在ngrok文件同一目录下 创建 ngrok.cfg 配置文件 12server_addr: &quot;ngrok.ouyangm.xyz:4443&quot; trust_host_root_certs: false 客户端运行 1./ngrok -subdomain ngrok -proto=http -config=ngrok.cfg 80 如果需要转发多个端口或者内网的其他电脑需要完善ngrok.cfg 123456789101112131415161718192021222324server_addr: ngrok.moonwalker.me:4443trust_host_root_certs: falsetunnels: ssh: remote_port: 1122 proto: tcp: 22 ss: emote_port: 8388 proto: tcp: 8388 ftp: remote_port: 20 proto: tcp: 20 ftp2: remote_port: 21 proto: tcp: 21 http: subdomain: www proto: http: 80 https: 192.168.1.4:443 启动特定的转发 1./ngrok -config ngrok.cfg start ssh ss 大家有问题可以在下方评论，多谢支持～]]></content>
+      <tags>
+        <tag>raspberrypi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[树莓派制作监控]]></title>
+    <url>%2F2019%2F09%2F16%2F%E6%A0%91%E8%8E%93%E6%B4%BE%E5%88%B6%E4%BD%9C%E7%9B%91%E6%8E%A7%2F</url>
+    <content type="text"><![CDATA[启动motion1systemctl start motion &amp;&amp; motion #配置文件地址 1/etc/motion/motion.conf]]></content>
+      <tags>
+        <tag>raspberrypi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[树莓派录制、发射红外信号]]></title>
+    <url>%2F2019%2F09%2F16%2F%E6%A0%91%E8%8E%93%E6%B4%BE%E5%BD%95%E5%88%B6%E3%80%81%E5%8F%91%E5%B0%84%E7%BA%A2%E5%A4%96%E4%BF%A1%E5%8F%B7%2F</url>
+    <content type="text"><![CDATA[进入红外接收模式 1mode2 -d /dev/lirc1 修改配置文件1sudo vi /etc/lirc/lircd.conf.d/aircon.lircd.conf 配置文件模板12345678910111213141516171819202122232425262728293031323334353637383940begin remote name aircon flags RAW_CODES eps 30 aeps 100 gap 19991 begin raw_codes name on 8960 4454 656 1634 660 535 653 544 654 1634 660 1629 654 1635 690 1599 655 543 655 541 656 1632 663 535 653 1636 689 508 680 517 681 515 683 514 685 512 686 511 687 512 686 508 690 1599 695 1596 689 1599 684 1605 690 507 680 517 682 515 683 514 685 1604 690 507 681 1608 686 511 687 510 689 1600 683 514 685 19868 760 435 690 507 691 506 683 514 684 1605 689 507 681 516 682 515 683 514 768 429 686 511 688 509 689 509 680 1609 685 511 687 510 688 509 689 508 681 516 682 515 684 513 685 512 687 510 687 509 689 508 764 434 682 515 683 523 676 512 686 511 687 510 689 508 690 end raw_codesend remote 修改配置文件后，重启lirc服务1sudo systemctl restart lircd 发射信号1irsend SEND_ONCE aircon on]]></content>
+      <tags>
+        <tag>raspberrypi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[简介]]></title>
+    <url>%2F2019%2F07%2F24%2F%E7%AE%80%E4%BB%8B%2F</url>
+    <content type="text"><![CDATA[啥也没写]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[SetupVPN]]></title>
+    <url>%2F2019%2F05%2F17%2FSetupVPN%2F</url>
+    <content type="text"><![CDATA[– Chrome 添加 SetupVPN –此教程不限操作系统，mac、linux、windwos 都可以使用,安装方法相同 开始之前** 请先安装Chrome浏览器** 下载地址：Chrome;准备好 SetupVPN.crx 文件 下载地址（下载较慢可以使用迅雷或其他工具下载）：SetupVPN 1、进入扩展程序：网址输入 chrome://extensions/ 或者按下图操作 2、开启开发者模式 3、将crx插件拖入窗口（如果失败请看文末PS） 4、确定添加 5、点击右上角灰色的小云朵，打开SetupVPN面板，选择语言，注册账号（有账号可直接登录） 6、选择节点，推荐日本或洛杉矶节点，速度比较快 7、到这里就成功了，不用时请断开，不然访问国内网站会很慢 PS：如果拖放crx文件时出现：无法添加此扩展程序 或其他错误 浏览器地址输入：chrome://flags/#extensions-on-chrome-urlsExtensions on chrome:// URLs 这个设置为Enabled重启浏览器，重新拖放插件（参考3、4步骤）添加完成后 将 Extensions on chrome:// URLs 这个改回去，不然会一直提示 您使用的是不受支持的命令行标记… 结束语：此插件免费，速度和稳定性都不错，适合浏览网页，祝您上网愉快～]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[项目]]></title>
+    <url>%2F2019%2F04%2F03%2F%E9%A1%B9%E7%9B%AE%2F</url>
+    <content type="text"><![CDATA[项目技术 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152 导出Excel 服务器导出,合并单元格，设置单元格格式，以及下载,导出PDF,上传图片及文件，打印，生成二维码，js es6新语法的使用，不同浏览器对语法的兼容 例如微信浏览器旧版不支持let，Vue 的使用及踩坑 ，加密算法 DES,AES,RSA 定义及实现 ,SQL优化，组合索引及分表分区,Git 命令 分支，合并冲突，回滚，授权，撤销权限，私有仓库及公有仓库 ,svn 创建仓库，合并冲突，回滚，，添加用户，授权 等常用命令 及常见问题 ，linux,macos的常用命令，服务器连接方式，数据库远程连接，防火墙设置，环境变量，软连接，硬连接saas 定义及实现界面UI常用控件，例如员工选择，地址选择,搜索条件，列表样式，界面主题风格webpack的使用，语法及常用命令 node 的常用命令，nrm切换源、vs，vscode,idea,xcode,的快捷键及基本语法，区别nosqlmongdb,redisJava webspring,spring cloudspring mvc,spring boot,struts2,spring security,shiro,mybatis/ibatis,hibenate, JCacheC# web.net mvc.net entity framework.net CacheC# c端winformnode V8webpackvuerecatsocket.io前端 框架bootstarplayuiiview负载均衡nginx服务器集群缓存技术数据库缓存服务器缓存客户端缓存sqlserver,mysql,oracle,关系型数据库的搭建、整合]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>Home</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[技术]]></title>
+    <url>%2F2019%2F04%2F03%2F%E6%8A%80%E6%9C%AF%2F</url>
+    <content type="text"><![CDATA[#前端技术 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798991001011021031041051061071081091101111121131141151161171181191201211221231241251261271281291301311321331341351361371381391401411421431441451461471481491501511521531541551561571581591601611621631641651661671681691701711721731741751761771781791801811821831841851861871881891901911921931941951961971981992002012022032042052062072082092102112122132142152162172182192202212222232242252262272282292302312322332342352362372381.关于Html1、html语义化标签的理解、结构化的理解；能否写出简洁的html结构；SEO优化。2、h5中新增的属性，如自定义属性data、类名className等；新增表单元素；拖拽Drag。3、h5中新增的API、修改的API、废弃的API稍作了解（离线存储、audio、video）。2.关于CSS1、CSS选择器（三大特性）。2、BFC机制。3、盒模型。4、CSS模块化开发（封装）；SCSS和LESS的使用。5、屏幕适配以及页面自适应。6、CSS3中新增的选择器。7、CSS3中新增的属性，transform、trasition、animation等。3.关于布局1、标准文档流（padding + margin + 负margin）+ 浮动float + 定位 left + right + top + bottom。2、百分比布局：px单位用%num代替，占父级元素的百分比。3、flex弹性布局：主轴、辅助轴的几个属性。4、grid栅格布局：使用框架中的类名来替代，本质上还是百分比布局。4.关于JS基础1、变量数据类型及检测：基本 + 引用。2、运算符：算术 + 条件 + 逻辑 + 位 + 短路、隐式转换等。3、条件、循环、异常处理if、switch()&#123;case xxx:&#125;、try、catch、finally、throw。4、函数定义、调用方式（apply、call、直接调用）；传参：实参给形参赋值。5、字符串、数组、对象常用API。6、正则表达式。5.关于JS高级1、作用域、作用域链、闭包。2、原型、原型链、继承。3、函数上下文、this指向。4、js的运行机制、事件队列和循环。5、Ajax原理、axios库。6、同步、异步编程。7、jQuery源码学习。6.关于浏览器1、浏览器的构成和运行机制。2、浏览器内核。3、浏览器交互：BOM和DOM相关webApi、监听事件。4、浏览器缓存机制。5、浏览器的渲染原理。6、浏览器的安全性：跨域和攻击。7.关于网络协议1、HTTP协议。2、cookie、session、token。8.关于ES6语法1、字符串、数组、对象扩展的api。2、变量扩展：let、const解构赋值，块级作用域。3、函数扩展：箭头函数默认参数、rest参数。4、展开运算符、模板字符串。5、set和map数据结构。6、迭代器和生成器函数next和yield的理解。7、proxy对象属性代理器：属性的读取（get）和设置（set）相关操作。8、promise对象、异步编程的解决方案。9、async + await：异步编程的终极方案promise + generator的语法糖。10、class语法、构造函数的语法糖。11、模块化编程export + import的导出和导入。9.VUE基础1、基本指令。2、实例的属性和方法。3、实例的生命周期。4、组件基础：创建、注册、添加属性方法、套用等。5、组件通信传值，父子、兄弟、跨级。6、插槽slot等。10.VUE高级1、vue-router：搭建SPA路由、组件的配置。路由间的传值。路由跳转。路由的导航守卫。记住在router.js和组件页面中的使用方式。2、vuex：状态管理、数据仓库store实例化仓库的5大属性的使用。state、getters、mutations、actions、modules。辅助函数mapState等，仓库中计算属性的映射、方便操作。记住在store.js和组件中使用方式。11.VUE深入、源码阅读1、数据响应式原理。2、virtual dom。3、diff 算法。4、nextTick等等。工程能力考察1.项目能力1、vue-cli脚手架搭建和功能配置vue.config.js。2、webpack的常用配置。3、项目构建打包。4、熟悉各类框架的文档。5、UI框架：Bootstrap、MUI、Element-ui等。6、常用的插件整理；整理一个自己插件库，封装自己的方法库、组件库。7、常用的工具熟练度。8、PC端和移动端开发注意事项。9、经验总结：快速确定项目的技术选型。10、坑点总结：项目遇到坑坑坑！11、项目中的性能优化记录（都是细节点，多记录）。12、需求文档的理解，可以结合项目流程图、UML图。13、问题解决能力：bug定位调试、查找文档、寻求他人。14、记录习惯养成。2.模块化、组件化开发能力1、项目分类；各类文件整理、分类。2、各类功能封装。3、组件和功能模块的抽离、解耦、复用。内功考察1.面向对象的编程思想1、类的抽象。2、对象的封装、继承。3、为了更好的去管理数据、分类数据，实现高内聚、低耦合。2.设计模式设计模式感觉也是将面向对象思想再度抽象成现实中某些特定模式。3.数据结构和算法1、学习常用的排序搜索算法、顺序表、链表、栈、队列、树、堆等。2、考验你的抽象思维和数学功底。3、将现实需求抽象成计算机代码的思维能力。4、LSM树，红黑树，二叉树、B树、B-树、B+树、B*树，数据库优化，范式及原理5、区块链，算法原理，深度学习，目标检测，语义分割 卷积，线代附加技能考察1.学习能力1、持续学习的态度——博客、笔记记录。2、技术论坛活跃度高、问答多。3、GitHub开源项目参与。2.了解一门后端语言1、python、node.js、php等。2、数据库mysql、redis、mongodb；sql的操作语句、mongodb的操作语句、redis的操作语句。3、node + express搭建本地服务等。4、python + django + request + scrapy。3.系统编程1、Linux命令行操作、系统文件管理。2、多任务、多线程、多进程、协程、并发、并行、串行、同步、异步等概念的理解。]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>Home</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[常用命令]]></title>
+    <url>%2F2019%2F04%2F03%2F%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[linux/macpwd 当前位置 好像不支持文件夹，会报错使用mac自带终端登录linux服务器 ssh root@119.29.243.221put 本地文件路径 远程主机路径（例如 put /desktop/a /root/data/c） 亲测可用1、mac上传文件到Linux服务器 scp 文件名 用户名@服务器ip:目标路径如：scp /Users/test/testFile test@www.linuxidc.com:/test/2、mac上传文件夹到Linux服务器，与上传文件相比多加了-r scp -r 文件夹目录 用户名@服务器ip:目标路径如：scp -r /Users/test/testFolder test@www.linuxidc.com:/test/3、Linux服务器下载文件到mac 下载只需将两个地址调换]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Home</tag>
+      </tags>
+  </entry>
+</search>
