@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="raspberrypi,">
+  <meta name="keywords" content="Home,">
 
 
 
@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="进入红外接收模式">
-<meta name="keywords" content="raspberrypi">
+<meta name="description" content="#前端技术">
+<meta name="keywords" content="Home">
 <meta property="og:type" content="article">
-<meta property="og:title" content="树莓派录制、发射红外信号">
-<meta property="og:url" content="http://www.ouyangm.xyz/2019/09/16/树莓派录制、发射红外信号/index.html">
+<meta property="og:title" content="技术">
+<meta property="og:url" content="http://www.ouyangm.xyz/技术.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="进入红外接收模式">
+<meta property="og:description" content="#前端技术">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-19T10:29:02.389Z">
+<meta property="og:updated_time" content="2019-09-16T07:27:09.712Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="树莓派录制、发射红外信号">
-<meta name="twitter:description" content="进入红外接收模式">
+<meta name="twitter:title" content="技术">
+<meta name="twitter:description" content="#前端技术">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://www.ouyangm.xyz/2019/09/16/树莓派录制、发射红外信号/">
+  <link rel="canonical" href="http://www.ouyangm.xyz/技术.html">
 
 
 
 
 
-  <title>树莓派录制、发射红外信号 | Blog</title>
+  <title>技术 | Blog</title>
   
 
 
@@ -321,7 +321,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.ouyangm.xyz/2019/09/16/树莓派录制、发射红外信号/">
+    <link itemprop="mainEntityOfPage" href="http://www.ouyangm.xyz/技术.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tay">
@@ -338,7 +338,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">树莓派录制、发射红外信号</h2>
+          <h2 class="post-title" itemprop="name headline">技术</h2>
         
 
         <div class="post-meta">
@@ -350,8 +350,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-16T14:59:10+08:00">
-                2019-09-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-03T20:15:43+08:00">
+                2019-04-03
               </time>
             
 
@@ -360,6 +360,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -419,16 +441,9 @@
       
 
       
-        <h1 id="进入红外接收模式"><a href="#进入红外接收模式" class="headerlink" title="进入红外接收模式"></a>进入红外接收模式</h1><a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mode2 -d /dev/lirc1</span><br></pre></td></tr></table></figure>
-
-<h1 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/lirc/lircd.conf.d/aircon.lircd.conf</span><br></pre></td></tr></table></figure>
-
-<h2 id="配置文件模板"><a href="#配置文件模板" class="headerlink" title="配置文件模板"></a>配置文件模板</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">begin remote</span><br><span class="line"></span><br><span class="line">    name  aircon</span><br><span class="line">    flags RAW_CODES</span><br><span class="line">    eps            30</span><br><span class="line">    aeps          100</span><br><span class="line"></span><br><span class="line">    gap          19991</span><br><span class="line"></span><br><span class="line">    begin raw_codes</span><br><span class="line">        name on</span><br><span class="line">        8960     4454      656     1634      660      535</span><br><span class="line">        653      544      654     1634      660     1629</span><br><span class="line">        654     1635      690     1599      655      543</span><br><span class="line">        655      541      656     1632      663      535</span><br><span class="line">        653     1636      689      508      680      517</span><br><span class="line">        681      515      683      514      685      512</span><br><span class="line">        686      511      687      512      686      508</span><br><span class="line">        690     1599      695     1596      689     1599</span><br><span class="line">        684     1605      690      507      680      517</span><br><span class="line">        682      515      683      514      685     1604</span><br><span class="line">        690      507      681     1608      686      511</span><br><span class="line">        687      510      689     1600      683      514</span><br><span class="line">        685    19868    </span><br><span class="line"></span><br><span class="line">        760      435      690      507      691      506</span><br><span class="line">        683      514      684     1605      689      507</span><br><span class="line">        681      516      682      515      683      514</span><br><span class="line">        768      429      686      511      688      509</span><br><span class="line">        689      509      680     1609      685      511</span><br><span class="line">        687      510      688      509      689      508</span><br><span class="line">        681      516      682      515      684      513</span><br><span class="line">        685      512      687      510      687      509</span><br><span class="line">        689      508      764      434      682      515</span><br><span class="line">        683      523      676      512      686      511</span><br><span class="line">        687      510      689      508      690</span><br><span class="line"></span><br><span class="line">  end raw_codes</span><br><span class="line"></span><br><span class="line">end remote</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改配置文件后，重启lirc服务"><a href="#修改配置文件后，重启lirc服务" class="headerlink" title="修改配置文件后，重启lirc服务"></a>修改配置文件后，重启lirc服务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart lircd</span><br></pre></td></tr></table></figure>
-
-<h1 id="发射信号"><a href="#发射信号" class="headerlink" title="发射信号"></a>发射信号</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">irsend SEND_ONCE aircon on</span><br></pre></td></tr></table></figure>
+        <p>#前端技术</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br></pre></td><td class="code"><pre><span class="line">1.关于Html</span><br><span class="line"></span><br><span class="line">1、html语义化标签的理解、结构化的理解；能否写出简洁的html结构；SEO优化。</span><br><span class="line"></span><br><span class="line">2、h5中新增的属性，如自定义属性data、类名className等；新增表单元素；拖拽Drag。</span><br><span class="line"></span><br><span class="line">3、h5中新增的API、修改的API、废弃的API稍作了解（离线存储、audio、video）。</span><br><span class="line"></span><br><span class="line">2.关于CSS</span><br><span class="line"></span><br><span class="line">1、CSS选择器（三大特性）。</span><br><span class="line"></span><br><span class="line">2、BFC机制。</span><br><span class="line"></span><br><span class="line">3、盒模型。</span><br><span class="line"></span><br><span class="line">4、CSS模块化开发（封装）；SCSS和LESS的使用。</span><br><span class="line"></span><br><span class="line">5、屏幕适配以及页面自适应。</span><br><span class="line"></span><br><span class="line">6、CSS3中新增的选择器。</span><br><span class="line"></span><br><span class="line">7、CSS3中新增的属性，transform、trasition、animation等。</span><br><span class="line"></span><br><span class="line">3.关于布局</span><br><span class="line"></span><br><span class="line">1、标准文档流（padding + margin + 负margin）+ 浮动float + 定位 left + right + top + bottom。</span><br><span class="line"></span><br><span class="line">2、百分比布局：px单位用%num代替，占父级元素的百分比。</span><br><span class="line"></span><br><span class="line">3、flex弹性布局：主轴、辅助轴的几个属性。</span><br><span class="line"></span><br><span class="line">4、grid栅格布局：使用框架中的类名来替代，本质上还是百分比布局。</span><br><span class="line"></span><br><span class="line">4.关于JS基础</span><br><span class="line"></span><br><span class="line">1、变量数据类型及检测：基本 + 引用。</span><br><span class="line"></span><br><span class="line">2、运算符：算术 + 条件 + 逻辑 + 位 + 短路、隐式转换等。</span><br><span class="line"></span><br><span class="line">3、条件、循环、异常处理if、switch()&#123;case xxx:&#125;、try、catch、finally、throw。</span><br><span class="line"></span><br><span class="line">4、函数定义、调用方式（apply、call、直接调用）；传参：实参给形参赋值。</span><br><span class="line"></span><br><span class="line">5、字符串、数组、对象常用API。</span><br><span class="line"></span><br><span class="line">6、正则表达式。</span><br><span class="line"></span><br><span class="line">5.关于JS高级</span><br><span class="line"></span><br><span class="line">1、作用域、作用域链、闭包。</span><br><span class="line"></span><br><span class="line">2、原型、原型链、继承。</span><br><span class="line"></span><br><span class="line">3、函数上下文、this指向。</span><br><span class="line"></span><br><span class="line">4、js的运行机制、事件队列和循环。</span><br><span class="line"></span><br><span class="line">5、Ajax原理、axios库。</span><br><span class="line"></span><br><span class="line">6、同步、异步编程。</span><br><span class="line"></span><br><span class="line">7、jQuery源码学习。</span><br><span class="line"></span><br><span class="line">6.关于浏览器</span><br><span class="line"></span><br><span class="line">1、浏览器的构成和运行机制。</span><br><span class="line"></span><br><span class="line">2、浏览器内核。</span><br><span class="line"></span><br><span class="line">3、浏览器交互：BOM和DOM相关webApi、监听事件。</span><br><span class="line"></span><br><span class="line">4、浏览器缓存机制。</span><br><span class="line"></span><br><span class="line">5、浏览器的渲染原理。</span><br><span class="line"></span><br><span class="line">6、浏览器的安全性：跨域和攻击。</span><br><span class="line"></span><br><span class="line">7.关于网络协议</span><br><span class="line"></span><br><span class="line">1、HTTP协议。</span><br><span class="line"></span><br><span class="line">2、cookie、session、token。</span><br><span class="line"></span><br><span class="line">8.关于ES6语法</span><br><span class="line"></span><br><span class="line">1、字符串、数组、对象扩展的api。</span><br><span class="line"></span><br><span class="line">2、变量扩展：let、const解构赋值，块级作用域。</span><br><span class="line"></span><br><span class="line">3、函数扩展：箭头函数默认参数、rest参数。</span><br><span class="line"></span><br><span class="line">4、展开运算符、模板字符串。</span><br><span class="line"></span><br><span class="line">5、set和map数据结构。</span><br><span class="line"></span><br><span class="line">6、迭代器和生成器函数next和yield的理解。</span><br><span class="line"></span><br><span class="line">7、proxy对象属性代理器：属性的读取（get）和设置（set）相关操作。</span><br><span class="line"></span><br><span class="line">8、promise对象、异步编程的解决方案。</span><br><span class="line"></span><br><span class="line">9、async + await：异步编程的终极方案promise + generator的语法糖。</span><br><span class="line"></span><br><span class="line">10、class语法、构造函数的语法糖。</span><br><span class="line"></span><br><span class="line">11、模块化编程export + import的导出和导入。</span><br><span class="line"></span><br><span class="line">9.VUE基础</span><br><span class="line"></span><br><span class="line">1、基本指令。</span><br><span class="line"></span><br><span class="line">2、实例的属性和方法。</span><br><span class="line"></span><br><span class="line">3、实例的生命周期。</span><br><span class="line"></span><br><span class="line">4、组件基础：创建、注册、添加属性方法、套用等。</span><br><span class="line"></span><br><span class="line">5、组件通信传值，父子、兄弟、跨级。</span><br><span class="line"></span><br><span class="line">6、插槽slot等。</span><br><span class="line"></span><br><span class="line">10.VUE高级</span><br><span class="line"></span><br><span class="line">1、vue-router：搭建SPA</span><br><span class="line"></span><br><span class="line">路由、组件的配置。</span><br><span class="line">路由间的传值。</span><br><span class="line">路由跳转。</span><br><span class="line">路由的导航守卫。</span><br><span class="line">记住在router.js和组件页面中的使用方式。</span><br><span class="line">2、vuex：状态管理、数据仓库store</span><br><span class="line"></span><br><span class="line">实例化仓库的5大属性的使用。</span><br><span class="line">state、getters、mutations、actions、modules。</span><br><span class="line">辅助函数mapState等，仓库中计算属性的映射、方便操作。</span><br><span class="line">记住在store.js和组件中使用方式。</span><br><span class="line">11.VUE深入、源码阅读</span><br><span class="line"></span><br><span class="line">1、数据响应式原理。</span><br><span class="line"></span><br><span class="line">2、virtual dom。</span><br><span class="line"></span><br><span class="line">3、diff 算法。</span><br><span class="line"></span><br><span class="line">4、nextTick等等。</span><br><span class="line"></span><br><span class="line">工程能力考察</span><br><span class="line"></span><br><span class="line">1.项目能力</span><br><span class="line"></span><br><span class="line">1、vue-cli脚手架搭建和功能配置vue.config.js。</span><br><span class="line"></span><br><span class="line">2、webpack的常用配置。</span><br><span class="line"></span><br><span class="line">3、项目构建打包。</span><br><span class="line"></span><br><span class="line">4、熟悉各类框架的文档。</span><br><span class="line"></span><br><span class="line">5、UI框架：Bootstrap、MUI、Element-ui等。</span><br><span class="line"></span><br><span class="line">6、常用的插件整理；整理一个自己插件库，封装自己的方法库、组件库。</span><br><span class="line"></span><br><span class="line">7、常用的工具熟练度。</span><br><span class="line"></span><br><span class="line">8、PC端和移动端开发注意事项。</span><br><span class="line"></span><br><span class="line">9、经验总结：快速确定项目的技术选型。</span><br><span class="line"></span><br><span class="line">10、坑点总结：项目遇到坑坑坑！</span><br><span class="line"></span><br><span class="line">11、项目中的性能优化记录（都是细节点，多记录）。</span><br><span class="line"></span><br><span class="line">12、需求文档的理解，可以结合项目流程图、UML图。</span><br><span class="line"></span><br><span class="line">13、问题解决能力：bug定位调试、查找文档、寻求他人。</span><br><span class="line"></span><br><span class="line">14、记录习惯养成。</span><br><span class="line"></span><br><span class="line">2.模块化、组件化开发能力</span><br><span class="line"></span><br><span class="line">1、项目分类；各类文件整理、分类。</span><br><span class="line"></span><br><span class="line">2、各类功能封装。</span><br><span class="line"></span><br><span class="line">3、组件和功能模块的抽离、解耦、复用。</span><br><span class="line"></span><br><span class="line">内功考察</span><br><span class="line"></span><br><span class="line">1.面向对象的编程思想</span><br><span class="line"></span><br><span class="line">1、类的抽象。</span><br><span class="line"></span><br><span class="line">2、对象的封装、继承。</span><br><span class="line"></span><br><span class="line">3、为了更好的去管理数据、分类数据，实现高内聚、低耦合。</span><br><span class="line"></span><br><span class="line">2.设计模式</span><br><span class="line"></span><br><span class="line">设计模式感觉也是将面向对象思想再度抽象成现实中某些特定模式。</span><br><span class="line"></span><br><span class="line">3.数据结构和算法</span><br><span class="line"></span><br><span class="line">1、学习常用的排序搜索算法、顺序表、链表、栈、队列、树、堆等。</span><br><span class="line"></span><br><span class="line">2、考验你的抽象思维和数学功底。</span><br><span class="line"></span><br><span class="line">3、将现实需求抽象成计算机代码的思维能力。</span><br><span class="line"></span><br><span class="line">4、LSM树，红黑树，二叉树、B树、B-树、B+树、B*树，数据库优化，范式及原理</span><br><span class="line"></span><br><span class="line">5、区块链，算法原理，深度学习，目标检测，语义分割 卷积，线代</span><br><span class="line"></span><br><span class="line">附加技能考察</span><br><span class="line"></span><br><span class="line">1.学习能力</span><br><span class="line"></span><br><span class="line">1、持续学习的态度——博客、笔记记录。</span><br><span class="line"></span><br><span class="line">2、技术论坛活跃度高、问答多。</span><br><span class="line"></span><br><span class="line">3、GitHub开源项目参与。</span><br><span class="line"></span><br><span class="line">2.了解一门后端语言</span><br><span class="line"></span><br><span class="line">1、python、node.js、php等。</span><br><span class="line"></span><br><span class="line">2、数据库mysql、redis、mongodb；sql的操作语句、mongodb的操作语句、redis的操作语句。</span><br><span class="line"></span><br><span class="line">3、node + express搭建本地服务等。</span><br><span class="line"></span><br><span class="line">4、python + django + request + scrapy。</span><br><span class="line"></span><br><span class="line">3.系统编程</span><br><span class="line"></span><br><span class="line">1、Linux命令行操作、系统文件管理。</span><br><span class="line"></span><br><span class="line">2、多任务、多线程、多进程、协程、并发、并行、串行、同步、异步等概念的理解。</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -474,7 +489,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/raspberrypi/" rel="tag"># raspberrypi</a>
+            <a href="/tags/Home/" rel="tag"># Home</a>
           
         </div>
       
@@ -487,8 +502,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/24/简介/" rel="next" title="简介">
-                <i class="fa fa-chevron-left"></i> 简介
+              <a href="/常用命令.html" rel="next" title="常用命令">
+                <i class="fa fa-chevron-left"></i> 常用命令
               </a>
             
           </div>
@@ -497,8 +512,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/09/16/树莓派制作监控/" rel="prev" title="树莓派制作监控">
-                树莓派制作监控 <i class="fa fa-chevron-right"></i>
+              <a href="/项目.html" rel="prev" title="项目">
+                项目 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -554,17 +569,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -647,22 +653,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#进入红外接收模式"><span class="nav-number">1.</span> <span class="nav-text">进入红外接收模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改配置文件"><span class="nav-number">2.</span> <span class="nav-text">修改配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件模板"><span class="nav-number">2.1.</span> <span class="nav-text">配置文件模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改配置文件后，重启lirc服务"><span class="nav-number">2.2.</span> <span class="nav-text">修改配置文件后，重启lirc服务</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#发射信号"><span class="nav-number">3.</span> <span class="nav-text">发射信号</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

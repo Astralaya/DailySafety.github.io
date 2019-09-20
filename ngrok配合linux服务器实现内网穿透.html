@@ -78,7 +78,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="raspberrypi,">
 
 
 
@@ -93,27 +93,20 @@
 
 
 
-<meta name="description" content="– Chrome 添加 SetupVPN –此教程不限操作系统，mac、linux、windwos 都可以使用,安装方法相同">
+<meta name="description" content="先设置域名解析  Step1 获取 ngrok 源码非官方地址，修复了部分包无法获取 1git clone https://github.com/tutumcloud/ngrok.git  Step2  生成自签名证书— *注意:下述指令中的域名要换成大家自己的哦,不然就绑定到我的域名上去了~ 12345678910111213cd ngrokNGROK_DOMAIN=&amp;quot;ngrok.ou">
+<meta name="keywords" content="raspberrypi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SetupVPN">
-<meta property="og:url" content="http://www.ouyangm.xyz/2019/05/17/SetupVPN/index.html">
+<meta property="og:title" content="ngrok配合linux云服务器实现内网穿透">
+<meta property="og:url" content="http://www.ouyangm.xyz/ngrok配合linux服务器实现内网穿透.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="– Chrome 添加 SetupVPN –此教程不限操作系统，mac、linux、windwos 都可以使用,安装方法相同">
+<meta property="og:description" content="先设置域名解析  Step1 获取 ngrok 源码非官方地址，修复了部分包无法获取 1git clone https://github.com/tutumcloud/ngrok.git  Step2  生成自签名证书— *注意:下述指令中的域名要换成大家自己的哦,不然就绑定到我的域名上去了~ 12345678910111213cd ngrokNGROK_DOMAIN=&amp;quot;ngrok.ou">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://www.ouyangm.xyz/1.png">
-<meta property="og:image" content="http://www.ouyangm.xyz/2.png">
-<meta property="og:image" content="http://www.ouyangm.xyz/3.png">
-<meta property="og:image" content="http://www.ouyangm.xyz/4.png">
-<meta property="og:image" content="http://www.ouyangm.xyz/5.png">
-<meta property="og:image" content="http://www.ouyangm.xyz/5.1.png">
-<meta property="og:image" content="http://www.ouyangm.xyz/6.png">
-<meta property="og:image" content="http://www.ouyangm.xyz/7.png">
-<meta property="og:image" content="http://www.ouyangm.xyz/ps.png">
-<meta property="og:updated_time" content="2019-09-17T02:01:17.279Z">
+<meta property="og:image" content="http://www.ouyangm.xyz/ngrok配合linux服务器实现内网穿透/yun.png">
+<meta property="og:updated_time" content="2019-09-20T03:07:14.775Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SetupVPN">
-<meta name="twitter:description" content="– Chrome 添加 SetupVPN –此教程不限操作系统，mac、linux、windwos 都可以使用,安装方法相同">
-<meta name="twitter:image" content="http://www.ouyangm.xyz/1.png">
+<meta name="twitter:title" content="ngrok配合linux云服务器实现内网穿透">
+<meta name="twitter:description" content="先设置域名解析  Step1 获取 ngrok 源码非官方地址，修复了部分包无法获取 1git clone https://github.com/tutumcloud/ngrok.git  Step2  生成自签名证书— *注意:下述指令中的域名要换成大家自己的哦,不然就绑定到我的域名上去了~ 12345678910111213cd ngrokNGROK_DOMAIN=&amp;quot;ngrok.ou">
+<meta name="twitter:image" content="http://www.ouyangm.xyz/ngrok配合linux服务器实现内网穿透/yun.png">
 
 
 
@@ -143,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://www.ouyangm.xyz/2019/05/17/SetupVPN/">
+  <link rel="canonical" href="http://www.ouyangm.xyz/ngrok配合linux服务器实现内网穿透.html">
 
 
 
 
 
-  <title>SetupVPN | Blog</title>
+  <title>ngrok配合linux云服务器实现内网穿透 | Blog</title>
   
 
 
@@ -330,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.ouyangm.xyz/2019/05/17/SetupVPN/">
+    <link itemprop="mainEntityOfPage" href="http://www.ouyangm.xyz/ngrok配合linux服务器实现内网穿透.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tay">
@@ -347,7 +340,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">SetupVPN</h2>
+          <h2 class="post-title" itemprop="name headline">ngrok配合linux云服务器实现内网穿透</h2>
         
 
         <div class="post-meta">
@@ -359,8 +352,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-17T01:11:36+08:00">
-                2019-05-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-19T17:34:23+08:00">
+                2019-09-19
               </time>
             
 
@@ -428,24 +421,42 @@
       
 
       
-        <h1 id="–-Chrome-添加-SetupVPN-–"><a href="#–-Chrome-添加-SetupVPN-–" class="headerlink" title="– Chrome 添加 SetupVPN –"></a>– Chrome 添加 SetupVPN –</h1><p><em>此教程不限操作系统，mac、linux、windwos 都可以使用,安装方法相同</em></p>
-<a id="more"></a>
+        <p>先设置域名解析</p>
+<img src="/ngrok配合linux服务器实现内网穿透/yun.png" title="域名解析">
+<h1 id="Step1-获取-ngrok-源码"><a href="#Step1-获取-ngrok-源码" class="headerlink" title="Step1 获取 ngrok 源码"></a>Step1 获取 ngrok 源码</h1><p>非官方地址，修复了部分包无法获取</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/tutumcloud/ngrok.git</span><br></pre></td></tr></table></figure>
 
-<h2 id="开始之前"><a href="#开始之前" class="headerlink" title="开始之前"></a>开始之前</h2><p>** 请先安装Chrome浏览器**  下载地址：<a href="https://www.google.cn/intl/zh-CN/chrome/" target="_blank" rel="noopener">Chrome</a>;<br><strong>准备好 SetupVPN.crx 文件</strong> 下载地址（下载较慢可以使用迅雷或其他工具下载）：<a href="https://www.crx4chrome.com/go.php?d=112575&i=4717&p=36007&s=1&l=https%3A%2F%2Ff1.crx4chrome.com%2Fcrx.php%3Fi%3Doofgbpoabipfcfjapgnbbjjaenockbdp%26v%3D3.6.1" target="_blank" rel="noopener">SetupVPN</a></p>
-<hr>
-<h2 id="1、进入扩展程序：网址输入-chrome-extensions-或者按下图操作"><a href="#1、进入扩展程序：网址输入-chrome-extensions-或者按下图操作" class="headerlink" title="1、进入扩展程序：网址输入 chrome://extensions/ 或者按下图操作"></a>1、进入扩展程序：网址输入 chrome://extensions/ 或者按下图操作</h2><p><img src="/1.png" alt="步骤1"></p>
-<h2 id="2、开启开发者模式"><a href="#2、开启开发者模式" class="headerlink" title="2、开启开发者模式"></a>2、开启开发者模式</h2><p><img src="/2.png" alt="步骤2"></p>
-<h2 id="3、将crx插件拖入窗口（如果失败请看文末PS）"><a href="#3、将crx插件拖入窗口（如果失败请看文末PS）" class="headerlink" title="3、将crx插件拖入窗口（如果失败请看文末PS）"></a>3、将crx插件拖入窗口（如果失败请看文末PS）</h2><p><img src="/3.png" alt="步骤3"></p>
-<h2 id="4、确定添加"><a href="#4、确定添加" class="headerlink" title="4、确定添加"></a>4、确定添加</h2><p><img src="/4.png" alt="步骤4"></p>
-<h2 id="5、点击右上角灰色的小云朵，打开SetupVPN面板，选择语言，注册账号（有账号可直接登录）"><a href="#5、点击右上角灰色的小云朵，打开SetupVPN面板，选择语言，注册账号（有账号可直接登录）" class="headerlink" title="5、点击右上角灰色的小云朵，打开SetupVPN面板，选择语言，注册账号（有账号可直接登录）"></a>5、点击右上角灰色的小云朵，打开SetupVPN面板，选择语言，注册账号（有账号可直接登录）</h2><p><img src="/5.png" alt="步骤5"><br><img src="/5.1.png" alt="步骤5.1"></p>
-<h2 id="6、选择节点，推荐日本或洛杉矶节点，速度比较快"><a href="#6、选择节点，推荐日本或洛杉矶节点，速度比较快" class="headerlink" title="6、选择节点，推荐日本或洛杉矶节点，速度比较快"></a>6、选择节点，推荐日本或洛杉矶节点，速度比较快</h2><p><img src="/6.png" alt="步骤6"></p>
-<h2 id="7、到这里就成功了，不用时请断开，不然访问国内网站会很慢"><a href="#7、到这里就成功了，不用时请断开，不然访问国内网站会很慢" class="headerlink" title="7、到这里就成功了，不用时请断开，不然访问国内网站会很慢"></a>7、到这里就成功了<del>，不用时请断开，不然访问国内网站会很慢</del></h2><p><img src="/7.png" alt="步骤7"></p>
-<hr>
-<h1 id="PS：如果拖放crx文件时出现：无法添加此扩展程序-或其他错误"><a href="#PS：如果拖放crx文件时出现：无法添加此扩展程序-或其他错误" class="headerlink" title="PS：如果拖放crx文件时出现：无法添加此扩展程序 或其他错误"></a>PS：如果拖放crx文件时出现：无法添加此扩展程序 或其他错误</h1><blockquote>
-<p>浏览器地址输入：chrome://flags/#extensions-on-chrome-urls<br>Extensions on chrome:// URLs 这个设置为Enabled<br>重启浏览器，重新拖放插件（参考3、4步骤）<br>添加完成后 将 Extensions on chrome:// URLs 这个改回去，不然会一直提示 <em>您使用的是不受支持的命令行标记…</em></p>
-</blockquote>
-<p><img src="/ps.png" alt="ps"></p>
-<h4 id="结束语："><a href="#结束语：" class="headerlink" title="结束语："></a>结束语：</h4><p><em>此插件免费，速度和稳定性都不错，适合浏览网页，祝您上网愉快～</em></p>
+<h1 id="Step2-生成自签名证书"><a href="#Step2-生成自签名证书" class="headerlink" title="Step2  生成自签名证书"></a>Step2  生成自签名证书</h1><p>— *注意:下述指令中的域名要换成大家自己的哦,不然就绑定到我的域名上去了~</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">cd ngrok</span><br><span class="line"></span><br><span class="line">NGROK_DOMAIN=&quot;ngrok.ouyangm.xyz&quot;</span><br><span class="line"></span><br><span class="line">openssl genrsa -out base.key 2048</span><br><span class="line"></span><br><span class="line">openssl req -new -x509 -nodes -key base.key -days 10000 -subj &quot;/CN=$NGROK_DOMAIN&quot; -out base.pem</span><br><span class="line"></span><br><span class="line">openssl genrsa -out server.key 2048</span><br><span class="line"></span><br><span class="line">openssl req -new -key server.key -subj &quot;/CN=$NGROK_DOMAIN&quot; -out server.csr</span><br><span class="line"></span><br><span class="line">openssl x509 -req -in server.csr -CA base.pem -CAkey base.key -CAcreateserial -days 10000 -out server.crt</span><br></pre></td></tr></table></figure>
+
+<p>替换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp base.pem assets/client/tls/ngrokroot.crt</span><br></pre></td></tr></table></figure>
+
+<h1 id="Step3：编译"><a href="#Step3：编译" class="headerlink" title="Step3：编译"></a>Step3：编译</h1><p>生成服务端，这一步耗时较长，耐心等</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make release-server release-client</span><br></pre></td></tr></table></figure>
+
+<p>生成树莓派客户端，等～</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo GOOS=linux GOARCH=arm make release-client  </span><br><span class="line"></span><br><span class="line">bin目录下会出现一个文件夹，里面的ngrok文件就是客户端文件</span><br><span class="line">将客户端文件下载客户端      </span><br><span class="line">            服务器                          本地路径</span><br><span class="line">scp username@serverIp:/ngrok/bin/ngrok /home/ubunutu/ngrok</span><br><span class="line">上传只需将两者调换，文件夹则需要加 -r</span><br><span class="line"></span><br><span class="line">赋予执行权限</span><br><span class="line">sudo chmod +x ngrok</span><br></pre></td></tr></table></figure>
+
+<p>如需生成其他平台客户端请参考以下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#Linux 平台 32 位系统：GOOS=linux GOARCH=386</span><br><span class="line">#Linux 平台 64 位系统：GOOS=linux GOARCH=amd64</span><br><span class="line">#Windows 平台 32 位系统：GOOS=windows GOARCH=386</span><br><span class="line">#Windows 平台 64 位系统：GOOS=windows GOARCH=amd64</span><br><span class="line">#MAC 平台 32 位系统：GOOS=darwin GOARCH=386</span><br><span class="line">#MAC 平台 64 位系统：GOOS=darwin GOARCH=amd64</span><br><span class="line">#ARM 平台：GOOS=linux GOARCH=arm</span><br></pre></td></tr></table></figure>
+
+<h1 id="Step4：运行"><a href="#Step4：运行" class="headerlink" title="Step4：运行"></a>Step4：运行</h1><p>启动服务端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./bin/ngrokd -tlsKey=server.key -tlsCrt=server.crt -domain=&quot;ngrok.ouyangm.xyz&quot; -httpAddr=&quot;:8081&quot; -httpsAddr=&quot;:8082&quot;</span><br></pre></td></tr></table></figure>
+
+<p>客户端在ngrok文件同一目录下 创建 ngrok.cfg 配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server_addr: &quot;ngrok.ouyangm.xyz:4443&quot;  </span><br><span class="line">trust_host_root_certs: false</span><br></pre></td></tr></table></figure>
+
+<p>客户端运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./ngrok -subdomain ngrok -proto=http -config=ngrok.cfg 80</span><br></pre></td></tr></table></figure>
+
+<p>如果需要转发多个端口或者内网的其他电脑需要完善ngrok.cfg</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">server_addr: ngrok.moonwalker.me:4443</span><br><span class="line">trust_host_root_certs: false</span><br><span class="line">tunnels:</span><br><span class="line"> ssh:</span><br><span class="line">  remote_port: 1122</span><br><span class="line">  proto:</span><br><span class="line">   tcp: 22</span><br><span class="line"> ss:</span><br><span class="line">  emote_port: 8388</span><br><span class="line">  proto:</span><br><span class="line">   tcp: 8388</span><br><span class="line"> ftp:</span><br><span class="line">  remote_port: 20</span><br><span class="line">  proto:</span><br><span class="line">   tcp: 20</span><br><span class="line"> ftp2:</span><br><span class="line">  remote_port: 21</span><br><span class="line">  proto:</span><br><span class="line">   tcp: 21</span><br><span class="line"> http:</span><br><span class="line">  subdomain: www</span><br><span class="line">  proto:</span><br><span class="line">   http: 80</span><br><span class="line">   https: 192.168.1.4:443</span><br></pre></td></tr></table></figure>
+
+<p>启动特定的转发</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./ngrok -config ngrok.cfg start ssh ss</span><br></pre></td></tr></table></figure>
+
+<p>大家有问题可以在下方评论，多谢支持～</p>
 
       
     </div>
@@ -490,6 +501,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/raspberrypi/" rel="tag"># raspberrypi</a>
+          
+        </div>
+      
 
       
       
@@ -499,8 +516,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/03/项目/" rel="next" title="项目">
-                <i class="fa fa-chevron-left"></i> 项目
+              <a href="/树莓派制作监控.html" rel="next" title="树莓派制作监控">
+                <i class="fa fa-chevron-left"></i> 树莓派制作监控
               </a>
             
           </div>
@@ -508,10 +525,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/24/简介/" rel="prev" title="简介">
-                简介 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -669,7 +682,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#–-Chrome-添加-SetupVPN-–"><span class="nav-number">1.</span> <span class="nav-text">– Chrome 添加 SetupVPN –</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#开始之前"><span class="nav-number">1.1.</span> <span class="nav-text">开始之前</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1、进入扩展程序：网址输入-chrome-extensions-或者按下图操作"><span class="nav-number">1.2.</span> <span class="nav-text">1、进入扩展程序：网址输入 chrome://extensions/ 或者按下图操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、开启开发者模式"><span class="nav-number">1.3.</span> <span class="nav-text">2、开启开发者模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、将crx插件拖入窗口（如果失败请看文末PS）"><span class="nav-number">1.4.</span> <span class="nav-text">3、将crx插件拖入窗口（如果失败请看文末PS）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、确定添加"><span class="nav-number">1.5.</span> <span class="nav-text">4、确定添加</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、点击右上角灰色的小云朵，打开SetupVPN面板，选择语言，注册账号（有账号可直接登录）"><span class="nav-number">1.6.</span> <span class="nav-text">5、点击右上角灰色的小云朵，打开SetupVPN面板，选择语言，注册账号（有账号可直接登录）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、选择节点，推荐日本或洛杉矶节点，速度比较快"><span class="nav-number">1.7.</span> <span class="nav-text">6、选择节点，推荐日本或洛杉矶节点，速度比较快</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7、到这里就成功了，不用时请断开，不然访问国内网站会很慢"><span class="nav-number">1.8.</span> <span class="nav-text">7、到这里就成功了，不用时请断开，不然访问国内网站会很慢</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PS：如果拖放crx文件时出现：无法添加此扩展程序-或其他错误"><span class="nav-number">2.</span> <span class="nav-text">PS：如果拖放crx文件时出现：无法添加此扩展程序 或其他错误</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#结束语："><span class="nav-number">2.0.0.1.</span> <span class="nav-text">结束语：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Step1-获取-ngrok-源码"><span class="nav-number">1.</span> <span class="nav-text">Step1 获取 ngrok 源码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Step2-生成自签名证书"><span class="nav-number">2.</span> <span class="nav-text">Step2  生成自签名证书</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Step3：编译"><span class="nav-number">3.</span> <span class="nav-text">Step3：编译</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Step4：运行"><span class="nav-number">4.</span> <span class="nav-text">Step4：运行</span></a></li></ol></div>
             
 
           </div>
