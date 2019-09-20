@@ -102,7 +102,7 @@
 <meta property="og:description" content="先设置域名解析  Step1 获取 ngrok 源码非官方地址，修复了部分包无法获取 1git clone https://github.com/tutumcloud/ngrok.git  Step2  生成自签名证书— *注意:下述指令中的域名要换成大家自己的哦,不然就绑定到我的域名上去了~ 12345678910111213cd ngrokNGROK_DOMAIN=&amp;quot;ngrok.ou">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/2019/09/19/ngrok配合linux服务器实现内网穿透/yun.png">
-<meta property="og:updated_time" content="2019-09-20T03:03:24.579Z">
+<meta property="og:updated_time" content="2019-09-20T03:07:14.775Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ngrok配合linux云服务器实现内网穿透">
 <meta name="twitter:description" content="先设置域名解析  Step1 获取 ngrok 源码非官方地址，修复了部分包无法获取 1git clone https://github.com/tutumcloud/ngrok.git  Step2  生成自签名证书— *注意:下述指令中的域名要换成大家自己的哦,不然就绑定到我的域名上去了~ 12345678910111213cd ngrokNGROK_DOMAIN=&amp;quot;ngrok.ou">
@@ -444,7 +444,7 @@
 <h1 id="Step4：运行"><a href="#Step4：运行" class="headerlink" title="Step4：运行"></a>Step4：运行</h1><p>启动服务端</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./bin/ngrokd -tlsKey=server.key -tlsCrt=server.crt -domain=&quot;ngrok.ouyangm.xyz&quot; -httpAddr=&quot;:8081&quot; -httpsAddr=&quot;:8082&quot;</span><br></pre></td></tr></table></figure>
 
-<p>客户端ngrok.cfg</p>
+<p>客户端在ngrok文件同一目录下 创建 ngrok.cfg 配置文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server_addr: &quot;ngrok.ouyangm.xyz:4443&quot;  </span><br><span class="line">trust_host_root_certs: false</span><br></pre></td></tr></table></figure>
 
 <p>客户端运行</p>
